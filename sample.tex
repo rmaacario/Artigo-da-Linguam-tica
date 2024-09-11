@@ -39,10 +39,10 @@
 
 
 %% Add your title in the main language used in the article
-\title{LLMs vs. NMTs: Desafios na Tradução da Linguagem Espacial EN-PT-br em Legendas de TED Talks}
+\title{Desafios na Tradução de Informação Espacial do Inglês para o Português}
 
 %% Currenty the title in English is also mandatory
-\titleEN{LLMs vs. NMTs: Challenges in Translating Spatial Language EN-PT-br in TED Talk Subtitles}
+\titleEN{Challenges in Translating Spatial Information from English to Portuguese}
 
 
 %% Add authors here. Three lines for each author.
@@ -53,10 +53,10 @@
   \instituto{Universidade de São Paulo}
   \email{rafael.macario@usp.br} 
   \and 
-%%  Rodrigo Souza
-%%  \instituto{Universidade de São Paulo}
-%%  \email{rodrigo.aparecido.souza@usp.br}
-%%  \and
+  Rodrigo Souza
+ \instituto{Universidade de São Paulo}
+  \email{rodrigo.aparecido.souza@usp.br}
+  \and
   Marcos Lopes
   \instituto{Universidade de São Paulo}
   \email{marcoslopes@usp.br}
@@ -76,50 +76,27 @@
 
 %% Add the abstract in the main language for the article. If possible, doesn't add any citations here.
 \begin{resumo}
-Este estudo explora os desafios de traduzir a semântica espacial em legendas do inglês para o português brasileiro (EN-PT-br). Ao comparar o desempenho de Modelos de Linguagem de Código Aberto (LLMs) com sistemas de Tradução Automática Neural (NMT), analisamos como esses modelos lidam com preposições espaciais e outros elementos semanticamente ricos. Através de uma combinação de métricas de avaliação automatizadas e análise manual de erros, o estudo identifica as forças e limitações de cada tipo de modelo, oferecendo insights sobre o futuro da tecnologia de tradução.
+Os sistemas de Tradução Automática Neural (TAN), atualmente a abordagem mais utilizada na Tradução Automática, ainda enfrentam desafios ao lidar com a tradução da linguagem espacial. Neste estudo, utilizamos o Raciocínio Espacial Qualitativo (REQ) para representar informações espaciais nas traduções automáticas do inglês para o português. Traduzimos 145 frases dos corpora CAM e COCA, utilizando Google Translate e DeepL, e identificamos as causas das traduções não naturais. Com o uso do REQ, mapeamos logicamente as diferenças de significado. Nossos resultados indicam que, apesar do bom desempenho geral, os motores TAN apresentam dificuldades com significados espaciais específicos, resultando em $10,6\%$ de erros semânticos e $12,0\%$ de erros de projeção sintática. Este trabalho explora os desafios práticos e teóricos da tradução automática.
 \end{resumo}
 
 %% Add keywords in the article main language, in lowercase
-\palavraschave{exemplo, pln, linguamática}
+\palavraschave{Tradução Automática Neural; Tradução Automática Inglês-Português; Raciocínio Espacial Qualitativo; Google Translate; DeepL.}
 
 
 %% Add the abstract in English
 \begin{abstract}
-This study explores the challenges of translating spatial semantics in subtitles from English to Brazilian Portuguese (EN-PT-br). By comparing the performance of open-source Large Language Models (LLMs) with Neural Machine Translation (NMT) systems, we analyze how effectively these models handle spatial prepositions and other semantically-rich elements. Through a combination of automated evaluation metrics and manual error analysis, the study identifies the strengths and limitations of each model type, offering insights into the future of translation technology.
 \end{abstract}
 
 %% add the keywords in English
 \keywords{Open-source LLMs, Neural Machine Translation, Spatial Semantics, Polysemy, Language Typology}
 
 
-
 \section{Introdução}
 
-A tradução da semântica espacial ainda enfrenta desafios significativos no campo da tradução automática, especialmente ao lidar com preposições que expressam relações espaciais complexas. Preposições como ACROSS, INTO, ONTO e THROUGH, que possuem traduções altamente dependentes do contexto, são difíceis de traduzir com precisão por máquinas entre línguas tipologiamente distintas. Esse desafio se torna especialmente evidente ao traduzir do inglês (EN), uma língua \texttt{S-framed}, para o português brasileiro (PT-br), uma língua \texttt{V-framed}, onde a ênfase nas relações de movimento e espaço é fundamentalmente distinta \citep{talmy2000toward,talmy2000towardb, Slobin-2004, slobin2005relating, Slobin2006WhatMM}. A tradução correta dessas preposições é crucial, pois erros podem resultar em traduções imprecisas, especialmente em contextos de legendas, onde a concisão e a clareza são essenciais. O Exemplo~\ref{ex:ex-1} ilustra esse desafio.
+A Tradução Automática Neural (TAN) tornou-se o paradigma dominante na área de Tradução Automática (TA), tanto em estudos acadêmicos quanto em aplicações práticas~\citep{dabre2020survey}. Esse avanço se deve, em grande parte, à capacidade aprimorada dos modelos de aprendizado profundo de captar dependências longas nas frases~\citep{vaswani2017attention, yang2020survey}.
 
-\ex \texttt{(inner\_id: 27316)} \hfill \texttt{Across(ii)} \\[0.3ex]
-\noindent\rule{\linewidth}{0.9pt}
-When I \colorbox{lightblue}{\textcolor{blue}{walked}} \colorbox{lightgray}{\textcolor{blue}{\emph{across}}} \colorbox{lightgray}{\textcolor{blue}{Afghanistan}}, I \textcolor{blue}{stayed} with people like this. (SRC) \label{ex:ex-1} \\[-0.3ex]
-\noindent\rule{\linewidth}{0.3pt} \\ 
-Ele \textit{atravessou} a multidão com dificuldade até chegar à frente.  (REF) \\ 
-\gll 3SG.M \textit{crossed} the crowd with difficulty until reaching the front \\
-\medskip
-\a. ?~Ele lutou no meio da multidão até chegar à frente. (GT) \\ 
-\gll 3SG.M fought in-the middle of-the crowd until reach to-the front \\
-\medskip
-\b. ?~Ele se debateu entre a multidão até chegar à frente. (DL) \\ 
-\gll 3SG.M REFL struggled amongst the crowd until reach to-the front \\
-\medskip
-\c. Ele lutou contra a multidão até chegar à frente. (GM) \\
-\gll 3SG.M He \textit{crossed} the crowd with difficulty until reaching the front \\
-\d. Ele lutou para passar pela multidão até chegar à frente.
-%\par
-\normalsize
+No entanto, apesar de serem bastante eficientes, alguns tradutores automáticos ainda enfrentam desafios ao lidar com as sutilezas da linguagem espacial, como a polissemia das preposições e a projeção idiossincrática da maneira do movimento em inglês diretamente em verbos no português~\citep{McCleary-Viotti-2004}. Um exemplo disso pode ser observado no Exemplo (1), retirado do Cambridge Online Dictionary (CAM), onde a tradução do inglês (EN) para o português (PT) foi realizada com o Google Translate (GT) e o DeepL (DL).
 
-
-Os avanços recentes nos tradutores automáticos neurais (NMTs) e o surgimento dos grandes modelos de linguagem (LLMs) têm oferecido novas ferramentas para enfrentar esses desafios. Embora os NMTs tradicionais tenham progredido significativamente na melhoria da qualidade da tradução, ainda enfrentam dificuldades com as sutilezas da linguagem espacial, resultando, frequentemente, em traduções excessivamente literais ou idiomaticamente imprecisas. Por outro lado, os LLMs, com seus vastos conjuntos de dados de treinamento e arquiteturas sofisticadas, têm o potencial de produzir traduções mais adequadas ao contexto. No entanto, o desempenho desses modelos na tradução do domínio espacial ainda é pouco explorado, especialmente quando comparado aos sistemas NMT tradicionais.
-
-Este artigo investiga como diferentes modelos lidam com a tradução de preposições espaciais do inglês para o português brasileiro (EN-PT-BR). Focando em legendas de TED Talks, esta pesquisa busca avaliar a eficácia dos LLMs em preservar a integridade semântica das expressões espaciais, em comparação com os sistemas NMT tradicionais. Os resultados visam contribuir para o desenvolvimento contínuo das tecnologias de tradução automática, identificando áreas em que esses modelos se destacam e onde ainda há necessidade de melhorias.
 
 \subsection{Desafios na Tradução da Espacialidade}
 
