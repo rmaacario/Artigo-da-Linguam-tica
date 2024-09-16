@@ -7,7 +7,10 @@
 \usepackage{linguex}
 \usepackage[utf8]{inputenc} % To handle special characters
 \usepackage{amssymb} % For symbols like ? in glosses
+%\usepackage{microtype}
 
+\usepackage{mathtools, amsmath, float} 
+\usepackage{MnSymbol} %M: para a Defeasible Implication
 
 \usepackage[T1]{fontenc}
 \usepackage{xcolor}   % For color
@@ -140,9 +143,150 @@ algumas sugestões:
   \label{tab:1}
 \end{table}
 
+\section{Metodologia}
+Nesta seção, apresentamos as etapas metodológicas do nosso trabalho, composta pela coleta dos dados, pela classificação das preposições, pelo processo de tradução, pelas formalizações das informações espaciais e pela categorização das traduções. 
+
+\subsection{Coleta dos Dados}
+
+\subsection{Classificação das Preposições}
+
+\subsection{Tradução das Sentenças}
+
+%\subsection{Formalização das Informações Espaciais}
+
+\subsection{Formalização das Sentenças}
+
+A partir do trabalho de~\citet{spranger2016robust}, definimos cada intervalo de tempo $t$ como um conjunto de pontos e utilizamos o predicado \textit{occurs\_in($\theta$, $t$)} para denotar que um evento $\theta$ ocorre durante um intervalo de tempo $t$.
+Com base em~\citet{freksa2016neighborhood}, definimos os eventos $\theta$ por meio do cojunto de treze relações qualitativas espaço-temporais apresentadas na Figura~\ref{fig:13_relations}.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=\columnwidth]{Figures/13_concep_neigb_relat.png}
+	\caption{Treze relações qualitativas entre dois objectos lineares estendidos sobre uma reta orientada~\citep{freksa2016neighborhood}.}
+	\label{fig:13_relations}
+\end{figure}
+
+A Figura~\ref{fig:13_relations} apresenta  as treze relações conjuntamente exaustivas e em pares disjuntivos baseadas no Cálculo de Intervalos de Allen~\citep{allen1983maintaining}.
+Essas relações podem ser descritas pelo seguinte cojunto: \{\textit{before, after, equal, meets, met by, overlaps, overlapped by, during, contains, starts, started by, finishes, finished by}\}. 
+Com esse cojunto de relações, podemos representar transições relacionadas ao movimento de objetos que fazem parte de um evento.
+
+Por \textit{default}, assumimos um espaço 3D para todos os objetos em nossas representações de movimento nas cenas. Para representar as informações espaciais em sentenças como as do Exemplo (1), em que a preposição ``across'' denota
+o movimento de atravessar uma superfície, definimos uma função \textit{surface(r)}. Essa função mapeia relações como
+\textit{during} ou \textit{contains}, projetando um objeto em uma superfície 2D.
+
+Para modelar relações mereotopológicas, nos baseamos no RCC-8~\citep{randell1992spatial}: \{\textit{dc, ec, po, eq, tpp, ntpp, tpp}${^{-1}}$, \textit{ntpp}${^{-1}}$\}.
+Para formalizar uma sentença como a gerada pela tradução do GT no Example~\ref{example:across2}, nós definimos uma Região de Referência (\textit{RR}), que é uma parte de 
+uma região \textit{R}, ou Fundo, localizada fora da região onde a ação executada pelo objeto \textit{F}, a Figura, 
+acontece. A Região de Referência é separada do restante de \textit{R} por uma linha transversal (chamada por nós de \textit{meridiano}) 
+que liga com \textit{R} em dois pontos distantes (não consecutivos) e não toca $F: R_{op} = ntpp(F, R)$.
+
+De modo a representar a relação entre o predicado \textit{occurs\_in($\theta$, $t$)} e as relações qualitativas 
+apresentadas na Figura~\ref{fig:13_relations}, nós utilizamos o conectivo $\leftlsquigarrow$, que denota uma implicação
+revogável, isto é, uma forma de raciocíno que é racionalmente convincente, mas carece de validade dedutiva. 
+Nesse contexto, as premissas do argumento oferecem suporte racional para a conclusão, mas há a possibilidade 
+de as premissas serem verdadeiras e a ser falsa. Em resumo, a conexão entre as premissas e a conclusão são provisórias
+e podem ser anuladas por informações suplementares.
+
+\subsection{Categorização das Traduções}
+%\subsection{title}
+
+\section{Resultados e Discussão}
 
 
-\section*{Agradecimientos}
+\begin{table}[!htb]
+  \centering
+  \scalebox{0.8}{
+  \begin{tabular}{| l |p{.3\textwidth}|}%{|l|l|}
+  \hline
+  \textbf{Original text:} He swam \underline{across} the river. 
+  \\\hline\hline
+  \begin{tabular}[c]{@{}l@{}}  
+  $\forall t$ $ \in \{t_1, t_2, t_3\}, t_1 < t_2 < t_3$\\ 
+  $occurs\_in(moves\_across(he, river), t)$ $\leftlsquigarrow$\\
+  $river' = surface(river)$ $\wedge$\\
+  $starts(he, river', t_1)$ $\wedge$\\ 
+  $during(he, river', t_2)$ $\wedge$\\ 
+  $finishes(he, river', t_3)$\\
+  %$continuous(t_1, t_2, t_3)$\\
+  
+  \end{tabular}\\\hline\hline
+  \textbf{GT:} Ele nadou \underline{do outro lado} do rio. 
+  \\\hline\hline
+  \begin{tabular}[c]{@{}l@{}}  
+  
+  $\forall t$ $\in \{t_1, t_2, t_3\}, t_1 < t_2 < t_3$\\
+  $occurs\_in(moves\_on\_opposite\_side(he, river_{op}), t)$ $\leftlsquigarrow$\\
+  $river' = surface(river_{op})$ $\wedge$\\
+  $starts(he, river', t_1)$ $\wedge$\\
+  $during(he, river', t_2)$ $\wedge$\\ 
+  $finishes(he, river', t_3)$\\
+  \end{tabular}\\\hline\hline
+  
+  \textbf{DL:} Ele \underline{atravessou} o rio a nado.
+  \\\hline\hline
+  \begin{tabular}[c]{@{}l@{}} 
+  $\forall t$ $ \in \{t_1, t_2, t_3\}, t_1 < t_2 < t_3$\\ 
+  $occurs\_in(moves\_across(he, river_{op}), t)$ $\leftlsquigarrow$\\
+  $river' = surface(river_{op})$ $\wedge$\\
+  $starts(he, river', t_1)$ $\wedge$\\ 
+  $during(he, river', t_2)$ $\wedge$\\ 
+  $finishes(he, river', t_3)$\\
+  % $continuous(t_1, t_2, t_3)$\\
+  \end{tabular}\\\hline
+  
+  \end{tabular}}
+  \caption{Formalizations for sentences in Example~\ref{example:across2}.}
+  \label{table:FormAcross}
+  \end{table}
+
+
+  % Through
+\begin{table}[!htb]
+  \centering
+  \scalebox{0.7}{
+  \begin{tabular}{| l |p{.3\textwidth}|}%{|l|l|}
+  \hline
+  \textbf{Original text:} He struggled \underline{through} the crowd till he\\ reached the front.
+  \\\hline\hline
+  \begin{tabular}[c]{@{}l@{}}  
+  $\forall t$ $\in \{t_1, t_2, t_3\}, t_1 < t_2 < t_3$\\ $occurs\_in(arduously(moves\_through(he, crowd), t))$ $\leftlsquigarrow$\\ 
+  $starts(he, crowd, t_1)$ $\wedge$\\  
+  $during(he, crowd, t_2)$ $\wedge$\\ 
+  $finishes(he, crowd, t_3)$ \\
+  \end{tabular}\\\hline\hline
+  
+  \textbf{GT:} Ele lutou \underline{no meio} da multidão até chegar à frente. 
+  \\\hline\hline
+  \begin{tabular}[c]{@{}l@{}} 
+  $\forall t$ $\in \{t_1, t_2, t_3\}, t_1 < t_2 < t_3$\\
+  $occurs\_in(fights(he, crowd)$ $\wedge$ $moves\_to(he, crowd), t)$ $\leftlsquigarrow$\\
+  $starts(he, crowd, t_1)$ $\wedge$\\  
+  $during(he, crowd, t_2)$ $\wedge$\\ 
+  $finishes(he, crowd, t_3)$\\ 
+  \end{tabular}\\\hline\hline
+  
+  \textbf{DL:} Ele se debateu \underline{entre} a multidão até chegar à frente.
+  \\\hline\hline
+  \begin{tabular}[c]{@{}l@{}} 
+  $\forall t$ $\in \{t_1, t_2, t_3\}, t_1 < t_2 < t_3$\\
+  $occurs\_in(flounder(he, crowd)$ $\wedge$ $moves\_to(he, crowd), t)$ $\leftlsquigarrow$\\
+  $starts(he, crowd, t_1)$ $\wedge$\\  
+  $during(he, crowd, t_2)$ $\wedge$\\ 
+  $finishes(he, crowd, t_3)$\\  
+  \end{tabular}\\\hline
+  \end{tabular}}
+  \caption{Formalizations for sentences in Example~\ref{example:through1}.}
+  \label{table:FormThrough}
+  \end{table}
+
+
+
+  
+  
+ 
+\section{Conclusão}
+
+\section*{Agradecimentos}
 
 Os agradecimentos devem ser colocados sempre numa secção final, sem número, tal como
 neste exemplo. Sempre que o autor assim o entender, deverá agradecer aos revisores.
