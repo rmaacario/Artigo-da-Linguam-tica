@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex sample"] 1726458526 "sample.aux" "sample.bbl" "sample" 1726458541
+["bibtex sample"] 1726458526 "sample.aux" "sample.bbl" "sample" 1726458667
   "./sp_por.bst" 1726010590 29690 2e969591b7fb835e3880859bf9d22216 ""
   "references.bib" 1726458515 43619593 189c3bca17cbb8f47b206984da5b72d1 ""
   "sample.aux" 1726458253 1932 30fb6d775c8088d0829215c484c477f3 "pdflatex"
   (generated)
   "sample.bbl"
   "sample.blg"
-["pdflatex"] 1726458248 "/Users/rafaelmaacario/Artigo-da-Linguam-tica/sample.tex" "/Users/rafaelmaacario/Artigo-da-Linguam-tica/sample.pdf" "sample" 1726458541
+["pdflatex"] 1726458248 "/Users/rafaelmaacario/Artigo-da-Linguam-tica/sample.tex" "/Users/rafaelmaacario/Artigo-da-Linguam-tica/sample.pdf" "sample" 1726458667
   "/Users/rafaelmaacario/Artigo-da-Linguam-tica/sample.aux" 1726458253 1932 30fb6d775c8088d0829215c484c477f3 ""
   "/Users/rafaelmaacario/Artigo-da-Linguam-tica/sample.tex" 1726458467 7871 0dae9b58e4229b3c2bc049510b5f3387 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -127,9 +127,9 @@
   "sample.out" 1726458253 359 1a6bd57aca840da75cbe6b7df09213bd "pdflatex"
   "sample.tex" 1726458467 7871 0dae9b58e4229b3c2bc049510b5f3387 ""
   (generated)
-  "sample.out"
-  "sample.aux"
-  "sample.pdf"
-  "/Users/rafaelmaacario/Artigo-da-Linguam-tica/sample.pdf"
   "/Users/rafaelmaacario/Artigo-da-Linguam-tica/sample.log"
+  "/Users/rafaelmaacario/Artigo-da-Linguam-tica/sample.pdf"
+  "sample.out"
+  "sample.pdf"
+  "sample.aux"
   "sample.log"
