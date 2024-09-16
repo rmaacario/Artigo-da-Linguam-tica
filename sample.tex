@@ -8,11 +8,15 @@
 \usepackage[utf8]{inputenc}
 \usepackage{amssymb} % For symbols like ? in glosses
 
+\usepackage{float}
 
 \usepackage[T1]{fontenc}
 \usepackage{xcolor}   % For color
 \usepackage{graphicx} % For handling images (optional)
 \usepackage{fancyhdr} % For custom headers/footers (optional)
+%\usepackage{natbib}
+\usepackage{linguex}
+\usepackage{hyperref}
 
 \definecolor{ForestGreen}{RGB}{34,139,34}
 \definecolor{Maroon}{RGB}{128,0,0}
@@ -27,6 +31,8 @@
 %% Set the bibliography style.
 %% Styles provided for Spanish (Castilian), Catalan and Portuguese.
 %% Other languages will be created on a required basis.
+%\usepackage[backend=biber]{biblatex}
+%\addbibresource{references.bib}
 
 \bibliographystyle{sp_por}   % This for Portuguese
 
@@ -68,6 +74,12 @@
 
 
 \begin{document}
+
+
+% Indentation for package "linguex"
+\setlength{\Exlabelwidth}{0.2em}
+\setlength{\SubExleftmargin}{1.5em}
+
 \maketitle
 
 %% Add the abstract in the main language for the article. If possible, doesn't add any citations here.
@@ -126,29 +138,60 @@ Com isso em mente, este artigo explora a tradução automática de frases em EN 
 
 \subsection{Desafios na Tradução da Espacialidade}
 
-
-\begin{table}[htb]
-  \centering
-  \begin{tabular}{lrr}
-    \toprule
-    & \textbf{Homens} & \textbf{Mulheres} \\
-    \midrule
-    Crianças & 10~032 & 32~341 \\
-    Adultos & 23~431 & 9~443 \\
-    \bottomrule
-  \end{tabular}
-  \caption{Exemplo de tabela com poucos traços.}
-  \label{tab:1}
-\end{table}
-
 \section{Metodologia}
 Nesta seção, apresentamos as etapas metodológicas do nosso trabalho, composta pela coleta dos dados, pela classificação das preposições, pelo processo de tradução, pelas formalizações das informações espaciais e pela categorização das traduções. 
 
 \subsection{Coleta dos Dados}
 
-\subsection{Classificação das Preposições}
+Para compor nosso corpus, compilamos $145$ sentenças contendo cinco preposições em EN que transmitem conhecimento espacial: 
+\textit{across}, \textit{into}, \textit{to}, \textit{through} e \textit{via}. As sentenças foram obtidas do Cambridge Online Dictionary (CAM)\footnote{\url{https://dictionary.cambridge.org/}} e 
+do Corpus of Contemporary American English (COCA)\footnote{\url{https://www.english-corpora.org/coca/}}. 
+Manualmente, anotamos cada sentença de acordo com o significado ligado às preposições, significado espacial e também atribuímos um identificador para o número da sentença.
+No Exemplo~\ref{example:through1}, apresentamos uma das sentenças do corpus (amostra \texttt{Through-CAM-1-2}).
+
+\footnotesize
+\ex. He struggled through the crowd till he reached the front. (CAM) \label{example:through1} 
+\ag. ?~Ele lutou no meio da multidão até chegar à frente. (GT) \\ 
+3SG.M fought in-the middle of-the crowd until reach to-the front \\ 
+\medskip
+\bg. ?~Ele se debateu entre a multidão até chegar à frente. (DL) \\ 
+3SG.M REFL struggled amongst the crowd until reach to-the front \\ 
+\par
+\normalsize
+
+\subsection{Classificação das Sentenças}
+
+
+Sistematicamente, categorizamos cada sentença com base nos significados espaciais alinhados às entradas encontradas no CAM para cada preposição, 
+como mostra a Tabela~\ref{table:prep-categorizations}.
+
+\begin{table}[H]
+  \footnotesize
+  \centering
+  \begin{tabular}{|l|p{.25\textwidth}|}
+  \hline
+  \textbf{Preposição (EN)} & \textbf{Significado(s) Espaciais(s)}
+  \\\hline\hline
+  Across  & \begin{tabular}[c]{@{}l@{}}(1) posição perpendicular \\ (2) movimento de atravessar\\ (3) localização oposta \\ (4) em todas as partes de\end{tabular}\\\hline
+  
+  Into & \begin{tabular}[c]{@{}l@{}}(1) movimento para um \\ ponto não especificado de \\ uma área ou contêiner \\ (2) movimento até um ponto \\ de contato com um obstáculo\end{tabular}\\\hline
+  
+  Onto & \begin{tabular}[c]{@{}l@{}}(1) movimento sobre uma \\superfície \\  sair de uma área \\ delimitada\end{tabular} \\\hline
+  
+  Through & \begin{tabular}[c]{@{}l@{}}(1) movimento de atravessar \\ uma área de uma \\extremidade a outra  \\ (2) movimento de passar ou \\ penetrar uma barreira
+  \end{tabular} \\\hline
+  
+  Via & (1) parte de uma rota\\\hline                \end{tabular}
+  \caption{Categorização das preposições \textit{across}, \textit{into}, \textit{onto}, \textit{through} e \textit{via} baseada nas definições do CAM.}
+  \label{table:prep-categorizations}
+  \end{table}
 
 \subsection{Tradução das Sentenças}
+
+As sentenças foram traduzidas com o Google Translate (GT)\footnote{\url{https://translate.google.com}} e 
+com o DeepL (DL)\footnote{\url{https://www.deepl.com/translator}}, utilizando suas versões publicamente 
+disponíveis on-line em agosto-setembro de 2023. Além disso, para facilitar a comparação entre as traduções, fornecemos 
+referências profissionais traduzidas por humanos para todas as sentenças.
 
 %\subsection{Formalização das Informações Espaciais}
 
@@ -183,13 +226,23 @@ apresentadas na Figura~\ref{fig:13_relations}, nós utilizamos o conectivo $\lef
 revogável, isto é, uma forma de raciocíno que é racionalmente convincente, mas carece de validade dedutiva. 
 Nesse contexto, as premissas do argumento oferecem suporte racional para a conclusão, mas há a possibilidade 
 de as premissas serem verdadeiras e a ser falsa. Em resumo, a conexão entre as premissas e a conclusão são provisórias
-e podem ser anuladas por informações suplementares.
+e podem ser anuladas por informações suplementares.  
 
 \subsection{Categorização das Traduções}
 %\subsection{title}
 
-\section{Resultados e Discussão}
+Categorizamos as $145$ sentenças traduzidas pelo GT e pelo DL (ou seja, $290$ no total), comparando as traduções das preposições  
+com seus respectivos significados apresentados na Tabela~\ref{table:prep-categorizations}. Para tanto, utilizamos 
+as seguintes categorias: tradução (C)orreta, tradução equivocada de (S)ignificado e erro de (P)rojeção na tradução. 
+A última envolve principalmente a incorporação inadequada da maneira do movimento no verbo das sentenças traduzidas para o português, em vez de representar essa informação com adjuntos (veja, por exemplo,~\ref{table:FormThrough}).
 
+\section{Resultados e Discussão}
+Inicialmente, para sintetizar os resultados obtidos por meio da nossa análise formal, discutiremos as
+formalizações das sentenças nos Examplos~\ref{example:across2} and \ref{example:through1}.  As fórmulas apresentadas a seguir descrevem relações espaciais qualitativas 
+entre as sentenças originais e suas respectivas traduções automáticas.
+Em ambas as formalizações, os intervalos de tempo foram representados por $t_1$, $t_2$, $t_3$, onde $t_1$ e $t_3$ correspondem aos intervalos inicial e final, respectivamente. 
+Já $t_2$, por sua vez,  representa um intervalo de tempo entre $t_1$ e $t_3$.
+A tabela~\ref{table:FormAcross} mostra as fórmulas que representam o Exemplo~\ref{example:across2}.
 
 \begin{table}[!htb]
   \centering
@@ -233,12 +286,20 @@ e podem ser anuladas por informações suplementares.
   \end{tabular}\\\hline
   
   \end{tabular}}
-  \caption{Formalizations for sentences in Example~\ref{example:across2}.}
+  \caption{Formalizações das sentenças do Exemplo~\ref{example:across2}.}
   \label{table:FormAcross}
   \end{table}
+ 
+A formalização na Tabela~\ref{table:FormAcross} nos permite representar a diferença lexical mencionada na Seção~\ref{sec:introduction}. 
+Na sentença original, a preposição \textit{across} é categorizada como sentido~(2) de acordo com CAM (Tabela~\ref{table:prep-categorizations}). 
+Entretanto, a tradução da GT opta pelo sentido~(3). A expressão ``do outro lado'' transmite o significado de 
+que a ação executada pelo indivíduo, \textit{ele}, ocorreu em uma porção do \textit{rio} que é separada da \textit{RR}, 
+diferindo da região onde a ação ocorreu na sentença original, e alinhando-se com a tradução da DL.
 
+Na formalização das sentenças do Exemplo~\ref{example:through1}, apresentada na TabelaTable~\ref{table:FormThrough},
+também é possível perceber diferenças qualitativas relacionadas a informação espacial. No exemplo, \textit{through} é empregado no sentido~(1) (da Tabela~\ref{table:prep-categorizations}).
 
-  % Through
+% Through
 \begin{table}[!htb]
   \centering
   \scalebox{0.7}{
@@ -273,24 +334,74 @@ e podem ser anuladas por informações suplementares.
   $finishes(he, crowd, t_3)$\\  
   \end{tabular}\\\hline
   \end{tabular}}
-  \caption{Formalizations for sentences in Example~\ref{example:through1}.}
+  \caption{Formalizações para as sentenças do Exemplo~\ref{example:through1}.}
   \label{table:FormThrough}
   \end{table}
 
+  Como podemos observar, as três relações $\langle starts, during, finishes\rangle$ foram aplicadas
+  em todas as sentenças na Tabela~\ref{table:FormThrough}. Essa escolha reflete que a ação começou em um ponto de entrada da \textit{multidão} 
+  e terminou em um ponto de saída. As distinções entre as frases do evento estão na maneira como a ação ocorreu.
+
+A sentença original do Exemplo~\ref{example:through1} descreve um evento em que o movimento da figura acontece 
+de um ponto dentro ou além da multidão para uma extremidade, em direção à frente da multidão e realizado comdificuldade. 
+ Essa dificuldade é incorporada ao verbo \textit{to struggle} do EN. De modo semelhante, os tradutores automáticos, GT e DL, 
+optaram por traduzir a mesma informação usando verbos do PT como ``lutar'' (\textit{to fight}) e ``se debater'' (\textit{to flounder}),
+respectivamente, produzindo traduções que soam execessivamente exageradas. Uma tradução mais precisa seria 
+``Ele atravessou a multidão \emph{com dificuldade} até chegar à frente.'' Nessa versão, o ato de atravessar é expresso por ``atravessar'', 
+enquanto a dificuldade da ação é transmitida por ``com dificuldade''.
+
+Para representar essa distinção nas formalizações, introduzimos um predicado de segunda ordem (\textit{arduously}). 
+Na Tabela~\ref{table:FormThrough}, o esforço envolvido na execução da ação vinculada ao verbo \textit{lutar} é expresso pelo predicado \textit{arduously}. 
+Em contraste, as expressões ``lutou no meio de'' e ``se debateu entre'' denotam eventos individualizados.
+
+Por fim, as formalizações na Tabela~\ref{table:FormThrough} apresentam os desafios que o GT e o DL enfrentaram ao traduzir as informações sobre a maneira dos eventos, 
+resultando em erros de tradução. A Tabela~\ref{table:GT_DL_Errors} resume a avaliação de cada categoria encontrada em nossa análise: 
+tradução (C)orreta, tradução equivocada de (S)ignificado e erro de (P)rojeção na tradução.
+
+\begin{table}[ht]
+  \centering
+  \footnotesize
+  \begin{tabular}{|l|c|c|c|}
+  \hline
+  & \textbf{Correta} & \textbf{Significado} & \textbf{Projeção} \\
+  \hline\hline
+  GT & $106~(73.1\%)$ & $19~(13.1\%)$ &  $20~(13.8\%)$\\ \hline
+  DL & $118~(81.4\%)$ & $12~(8.3\%)$ &$15~(10.3\%)$ \\ \hline
+  Total & $\textbf{224~(77.2\%)}$ & $\textbf{31~(10.6\%)}$ & $\textbf{35~(12.0\%)}$ \\ \hline
+  \end{tabular}
+  \caption{Categorização da performance do GT e do DL.}
+  \label{table:GT_DL_Errors}
+  \end{table}
+
+A tabela~\ref{table:GT_DL_Errors} mostra que o DL superou o GT na geração de traduções corretas. O DL traduziu
+corretamente $118$~sentenças~($81,4$\%), enquanto o GT traduziu $106$~($73,1$\%). 
+O DL também apresentou menos erros de significado~($8,3$\%) e erros de projeção~($10,3$\%) em comparação com 
+o GT, que teve~$19$~($13,1$\%) e~$20$~($13,8$\%), respectivamente. Os erros de significado referem-se a situações em que o tradutor automático gera uma frase gramaticalmente correta 
+que não transmite o significado original. Por exemplo, ao traduzir \textit{across}, independentemente de seu significado, o GT escolheu predominantemente a tradução ``do outro lado''.
+Os erros de projeção, por sua vez, são influenciados por padrões distintos de lexicalização de informações 
+espaciais em EN e PT, conforme descrito em~\citet{talmy1985lexicalization, talmy2000toward}. 
 
 
-  
-  
- 
+
 \section{Conclusão}
 
-\section*{Agradecimentos}
 
-Os agradecimentos devem ser colocados sempre numa secção final, sem número, tal como
-neste exemplo. Sempre que o autor assim o entender, deverá agradecer aos revisores.
+
+Neste trabalho, analisamos $145$ sentenças que descrevem relaçõs espaciais coletadas dos corpora CAM e COCA e 
+traduzidas do EN para o PT pelo Google Translate e pelo DeepL. Utilizando métodos QSR, formalizamos as 
+informações espaciais para destacar as diferenças nas relações qualitativas entre as frases de origem e de destino. 
+Também analisamos as traduções de todas as sentenças e verificamos que os erros de sentido relacionados à polissemia e os erros de projeção sintática desafiam a tradução automática.
+
+Para tornar nossos resultados mais consistentes, seria interessante (i)~formalizar mais exemplos; 
+(ii)~testar computacionalmente as formalizações; e (iii)~analisar traduções automáticas para outros idiomas de destino. 
+Uma limitação óbvia dessas sugestões é que elas consomem muito tempo, pois todas as formalizações devem ser feitas manualmente. 
+Além disso, reconhecemos a dificuldade de desenvolver métodos automáticos para representar logicamente a linguagem espacial e 
+incorporar camadas formais aos modelos de tradução automática neural. De modo geral, esperamos que este trabalho destaque as questões práticas e teóricas da TAN.
+
+
+\section{Agradecimentos}
+
 
 
 \bibliography{references}
-
-
 \end{document}
