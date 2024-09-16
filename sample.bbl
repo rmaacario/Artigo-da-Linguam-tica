@@ -1,4 +1,4 @@
-\begin{thebibliography}{0}
+\begin{thebibliography}{4}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\urlprefix}{}
@@ -6,5 +6,31 @@
   \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
   \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup
   \urlstyle{rm}\Url}\fi
+
+\bibitem[{Dabre et~al.(2020)Dabre, Chu \& Kunchukuttan}]{dabre2020survey}
+Dabre, Raj, Chenhui Chu \& Anoop Kunchukuttan. 2020.
+\newblock A survey of multilingual neural machine translation.
+\newblock \emph{ACM Computing Surveys (CSUR)} 53(5). 1--38.
+
+\bibitem[{McCleary \& Viotti(2004)}]{McCleary-Viotti-2004}
+McCleary, Leland \& Evani Viotti. 2004.
+\newblock Representação do espaço em inglês e português brasileiro:
+  observações iniciais.
+\newblock \emph{Revista da Anpoll} 1.
+\newblock \doi{10.18309/anp.v1i16.552}.
+\newblock
+  \urlprefix\url{https://revistadaanpoll.emnuvens.com.br/revista/article/view/552}.
+
+\bibitem[{Vaswani et~al.(2017)Vaswani, Shazeer, Parmar, Uszkoreit, Jones,
+  Gomez, Kaiser \& Polosukhin}]{vaswani2017attention}
+Vaswani, Ashish, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones,
+  Aidan~N Gomez, {\L}ukasz Kaiser \& Illia Polosukhin. 2017.
+\newblock Attention is all you need.
+\newblock \emph{Advances in neural information processing systems} 30.
+
+\bibitem[{Yang et~al.(2020)Yang, Wang \& Chu}]{yang2020survey}
+Yang, Shuoheng, Yuxin Wang \& Xiaowen Chu. 2020.
+\newblock A survey of deep learning techniques for neural machine translation.
+\newblock \emph{arXiv preprint arXiv:2002.07526} .
 
 \end{thebibliography}

@@ -1,32 +1,27 @@
 \documentclass[a4paper, twocolumn, 11pt, twoside]{article}
 
-\usepackage[brazil]{babel}
 \usepackage{linguamatica}
 \usepackage{expex}
 
+\usepackage[brazil]{babel} % Configura o idioma para português do Brasil
 \usepackage{linguex}
-\usepackage[utf8]{inputenc} % To handle special characters
+
+\usepackage[T1]{fontenc} % To handle special characters
+\usepackage[utf8]{inputenc} % To handle UTF-8 encoded characters
 \usepackage{amssymb} % For symbols like ? in glosses
 
-
-\usepackage[T1]{fontenc}
-\usepackage{xcolor}   % For color
+\usepackage[x11names]{xcolor}   % For color with explicit color model
 \usepackage{graphicx} % For handling images (optional)
 \usepackage{fancyhdr} % For custom headers/footers (optional)
-
-\definecolor{ForestGreen}{RGB}{34,139,34}
-\definecolor{Maroon}{RGB}{128,0,0}
-
-\definecolor{lightgray}{RGB}{224, 224, 224}
-\definecolor{mblue}{RGB}{0, 127, 204}
-\definecolor{lightyellow}{RGB}{255, 247, 209}
-\definecolor{lightblue}{RGB}{204, 230, 255} % 
 
 %% Please use UTF8 in your document
 
 %% Set the bibliography style.
 %% Styles provided for Spanish (Castilian), Catalan and Portuguese.
 %% Other languages will be created on a required basis.
+
+\usepackage{linguamatica}
+\usepackage{expex}
 
 \bibliographystyle{sp_por}   % This for Portuguese
 % \bibliographystyle{sp_esp} % This for Castilian
@@ -39,10 +34,10 @@
 
 
 %% Add your title in the main language used in the article
-\title{Desafios na Tradução de Informação Espacial do Inglês para o Português}
+\title{Desafios na Tradução da Informação Espacial do EN-PT-br}
 
 %% Currenty the title in English is also mandatory
-\titleEN{Challenges in Translating Spatial Information from English to Portuguese}
+\titleEN{Challenges in Translating Spatial Information from EN-PT-br}
 
 
 %% Add authors here. Three lines for each author.
@@ -76,7 +71,7 @@
 
 %% Add the abstract in the main language for the article. If possible, doesn't add any citations here.
 \begin{resumo}
-Os sistemas de Tradução Automática Neural (TAN), atualmente a abordagem mais utilizada na Tradução Automática, ainda enfrentam desafios ao lidar com a tradução da linguagem espacial. Neste estudo, utilizamos o Raciocínio Espacial Qualitativo (REQ) para representar informações espaciais nas traduções automáticas do inglês para o português. Traduzimos 145 frases dos corpora CAM e COCA, utilizando Google Translate e DeepL, e identificamos as causas das traduções não naturais. Com o uso do REQ, mapeamos logicamente as diferenças de significado. Nossos resultados indicam que, apesar do bom desempenho geral, os motores TAN apresentam dificuldades com significados espaciais específicos, resultando em $10,6\%$ de erros semânticos e $12,0\%$ de erros de projeção sintática. Este trabalho explora os desafios práticos e teóricos da tradução automática.
+  A Tradução Automática Neural (TAN), atualmente a abordagem mais utilizada, ainda enfrentam desafios ao lidar com a tradução do conhecimento espacial. Neste estudo, utilizamos o Raciocínio Espacial Qualitativo (REQ) para representar informações espaciais em traduções automáticas do inglês para o português. Traduzimos $145$ frases dos corpora CAM e COCA, utilizando Google Translate e DeepL, e identificamos as causas das traduções não naturais. Com o uso do REQ, mapeamos logicamente as diferenças de significado. Nossos resultados indicam que, apesar de um bom desempenho no geral, a TAN apresenta dificuldades com significados espaciais específicos, resultando em $10,6\%$ de erros semânticos e $12,0\%$ de erros de projeção sintática. Este trabalho explora os desafios práticos e teóricos da tradução automática.
 \end{resumo}
 
 %% Add keywords in the article main language, in lowercase
@@ -92,10 +87,39 @@ Os sistemas de Tradução Automática Neural (TAN), atualmente a abordagem mais 
 
 
 \section{Introdução}
+A Tradução Automática Neural (TAN) tornou-se o paradigma dominante na área de Tradução Automática, tanto em estudos acadêmicos quanto em aplicações práticas~\citep{dabre2020survey}~\citep{vaswani2017attention, yang2020survey}. Esse avanço se deve, em grande parte, à capacidade aprimorada dos modelos de aprendizado profundo de captar dependências longas nas frases.
 
-A Tradução Automática Neural (TAN) tornou-se o paradigma dominante na área de Tradução Automática (TA), tanto em estudos acadêmicos quanto em aplicações práticas~\citep{dabre2020survey}. Esse avanço se deve, em grande parte, à capacidade aprimorada dos modelos de aprendizado profundo de captar dependências longas nas frases~\citep{vaswani2017attention, yang2020survey}.
+No entanto, apesar dos avanços, alguns tradutores automáticos ainda enfrentam desafios ao lidar com as nuances da linguagem espacial, como a polissemia das preposições e a projeção idiossincrática da maneira de movimento em inglês diretamente para verbos em português~\citep{}. Um exemplo disso pode ser visto no Exemplo (1), retirado do Cambridge Online Dictionary (CAM), onde a tradução do inglês (EN) para o português (PT) foi realizada com o Google Translate (GT) e o DeepL (DL).
 
-No entanto, apesar de serem bastante eficientes, alguns tradutores automáticos ainda enfrentam desafios ao lidar com as sutilezas da linguagem espacial, como a polissemia das preposições e a projeção idiossincrática da maneira do movimento em inglês diretamente em verbos no português~\citep{McCleary-Viotti-2004}. Um exemplo disso pode ser observado no Exemplo (1), retirado do Cambridge Online Dictionary (CAM), onde a tradução do inglês (EN) para o português (PT) foi realizada com o Google Translate (GT) e o DeepL (DL).
+\footnotesize
+\ex. He swam \emph{across} the river. (CAM)\label{ex:across2}
+\ag. ?~Ele nadou do outro lado do rio. (GT) \\  
+3SG.M swam from-the other side of-the river\\ 
+\bg. Ele atravessou o rio a nado. (DL) \\ 
+3SG.M crossed the river by swimming\\
+\par
+\normalsize
+
+A tradução do Exemplo~\ref{ex:across2} feita pelo modelo GT, embora gramaticalmente correta, erra ao não capturar a expressão mais natural em PT para a sentença em EN. O DL, por outro lado, acerta em cheio.
+
+A razão por trás dessa tradução errada está na polissemiada preposição across, que pode significar tanto uma localização oposta fixa ao ponto de referência quanto movimento de um lado de um espaço para o outro. Neste caso em particular, o significado pretendido é claramente o último. Para ilustrar isso, vamos considerar as Figuras 1 e 2.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.3\textwidth]{aa-a-2.jpg}
+  \caption{Diagrama semântico de (1)-a.}\label{fig:across-1a}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.3\textwidth]{bb-b-2.jpg}
+  \caption{Diagrama semântico de (1)-b.}\label{fig:across-1b}
+\end{figure}
+
+
+A Figura~\ref{fig:across-1a}, representando a saída GT, indica movimento dentro de um local específico (uma margem oposta do rio). No entanto, a Figura 2, representando a saída DL, transmite o significado de cruzar de uma margem do rio para a outra, capturando assim a natureza dinâmica implícita na frase original EN. 
+
+Com isso em mente, este artigo explora a tradução automática de frases em EN que envolvem informações espaciais (topologia ou movimento) para PT, utilizando GT e DL. Nosso objetivo é duplo: primeiro, baseados nos trabalhos de Spranger et al. (2016), Freksa e Kreutzmann (2016) e Randell et al. (1992), formalizamos amostras de frases nas línguas de origem e destino. Em seguida, categorizamos as traduções para identificar erros comuns cometidos por ferramentas de TAN. Em vez de focar no processo de TAN em si, discutiremos os significados espaciais que essas ferramentas têm dificuldade em capturar, iluminando práticas e direções teóricas para pesquisa em linguagem espacial e TA. Nossos resultados mostram que, apesar do bom desempenho geral, os motores de TA ainda cometem erros sistemáticos em algumas categorias ao traduzir textos de EN para PT.
 
 
 \subsection{Desafios na Tradução da Espacialidade}
