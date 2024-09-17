@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex sample"] 0 "sample.aux" "sample.bbl" "sample" 1726530703.23198 -1
+["bibtex sample"] 1726545776.07147 "sample.aux" "sample.bbl" "sample" 1726545986.49306 2
   "./references.bib" 1726466460 44675553 15e7421f24e9a4ed250c7204ed88b38c ""
   "./sp_por.bst" 1726170212 31251 2e969591b7fb835e3880859bf9d22216 ""
-  "sample.aux" 1726530701 4667 9a121b178ec91b655496abfe5fbef1f0 "pdflatex"
+  "sample.aux" 1726545984 4617 61036d5449bfccd17906558d04ef096e "pdflatex"
   (generated)
   "sample.bbl"
   "sample.blg"
   (rewritten before read)
-["pdflatex"] 1726530700.2146 "c:/Users/CLIENTE/Documents/Linguamatica/Artigo-da-Linguam-tica/sample.tex" "sample.pdf" "sample" 1726530703.23274 2
+["pdflatex"] 1726545982.06235 "c:/Users/CLIENTE/Documents/Linguamatica/Artigo-da-Linguam-tica/sample.tex" "sample.pdf" "sample" 1726545986.49413 2
   "C:/Users/CLIENTE/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1726519969 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/CLIENTE/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx0900.pk" 1726517657 22504 a6a537899a9685418cd6d56c25dc91e6 ""
   "C:/Users/CLIENTE/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1000.pk" 1726517684 25420 1a8ce15b5f566a85c767b4456c551108 ""
@@ -164,12 +164,12 @@
   "Figures/13_concep_neigb_relat.png" 1726274243 35066 589ac0e56c04605c03e2900d6c9c016c ""
   "aa-a-2.jpg" 1726468089 9800 81711bcb3ece1d789eb60bc488aa40cb ""
   "bb-b-2.jpg" 1726468089 9520 e579b33524d425a9ecabb606edae84c5 ""
-  "c:/Users/CLIENTE/Documents/Linguamatica/Artigo-da-Linguam-tica/sample.tex" 1726530694 25140 3c2affa2191d7814520ac67f7338e5ec ""
+  "c:/Users/CLIENTE/Documents/Linguamatica/Artigo-da-Linguam-tica/sample.tex" 1726545767 28726 08c3eb7b411748b862dfc1b1e3b20c8f ""
   "linguamatica.sty" 1726170211 13020 67e7314be641090e4d5f5a3d1fe7f70e ""
-  "sample.aux" 1726530701 4667 9a121b178ec91b655496abfe5fbef1f0 "pdflatex"
-  "sample.bbl" 1726528390 1526 8f29c628b2660346223dc4d165961c1b "bibtex sample"
-  "sample.out" 1726530701 1769 015ea1e29df15c38790465fb96d11847 "pdflatex"
-  "sample.tex" 1726530694 25140 3c2affa2191d7814520ac67f7338e5ec ""
+  "sample.aux" 1726545984 4617 61036d5449bfccd17906558d04ef096e "pdflatex"
+  "sample.bbl" 1726545776 0 d41d8cd98f00b204e9800998ecf8427e "bibtex sample"
+  "sample.out" 1726545984 1769 015ea1e29df15c38790465fb96d11847 "pdflatex"
+  "sample.tex" 1726545767 28726 08c3eb7b411748b862dfc1b1e3b20c8f ""
   (generated)
   "sample.aux"
   "sample.log"

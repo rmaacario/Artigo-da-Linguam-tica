@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.9.16)  16 SEP 2024 20:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.9.16)  17 SEP 2024 01:06
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -432,8 +432,7 @@ LaTeX Info: Redefining \d on input line 313.
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count327
 \l__pdf_internal_box=\box64
-)
-No file sample.aux.
+) (sample.aux)
 \openout1 = `sample.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 76.
@@ -454,6 +453,7 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 76.
 LaTeX Font Info:    ... okay on input line 76.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 76.
 LaTeX Font Info:    ... okay on input line 76.
+
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -835,6 +835,11 @@ LaTeX Warning: Reference `example:through1' on page 2 undefined on input line 15
 LaTeX Warning: Reference `table:prep-categorizations' on page 2 undefined on input line 166.
 
 
+Overfull \hbox (13.4561pt too wide) in paragraph at lines 177--177
+[][]| 
+ []
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -1059,10 +1064,7 @@ LaTeX Warning: Reference `example:through1' on page 4 undefined on input line 34
 LaTeX Warning: Reference `table:FormThrough' on page 4 undefined on input line 354.
 
 
-LaTeX Warning: Reference `table:FormThrough' on page 4 undefined on input line 357.
-
-
-LaTeX Warning: Reference `table:GT_DL_Errors' on page 4 undefined on input line 358.
+LaTeX Warning: Reference `table:FormInto' on page 4 undefined on input line 359.
 
 
 
@@ -1070,37 +1072,65 @@ LaTeX Warning: Reference `table:GT_DL_Errors' on page 4 undefined on input line 
 pdfTeX warning (ext4): destination with the same identifier (name{table.2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.360 
+l.361 
       
 pdfTeX warning (ext4): destination with the same identifier (name{table.3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.360 
+l.361 
       ]
+c:/Users/CLIENTE/Documents/Linguamatica/Artigo-da-Linguam-tica/sample.tex:400: Undefined control sequence.
+<recently read> \leftlsquigarrow 
+                                 
+l.400   \end{tabular}}
+                      
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
-LaTeX Warning: Reference `table:GT_DL_Errors' on page 5 undefined on input line 376.
+c:/Users/CLIENTE/Documents/Linguamatica/Artigo-da-Linguam-tica/sample.tex:400: Undefined control sequence.
+<recently read> \leftlsquigarrow 
+                                 
+l.400   \end{tabular}}
+                      
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+c:/Users/CLIENTE/Documents/Linguamatica/Artigo-da-Linguam-tica/sample.tex:400: Undefined control sequence.
+<recently read> \leftlsquigarrow 
+                                 
+l.400   \end{tabular}}
+                      
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
 
-Package natbib Warning: Citation `talmy1985lexicalization' on page 5 undefined on input line 382.
+LaTeX Warning: Reference `table:FormInto' on page 5 undefined on input line 406.
 
 
-Package natbib Warning: Citation `talmy2000toward' on page 5 undefined on input line 382.
-
-(sample.bbl
+LaTeX Warning: Reference `table:prep-categorizations' on page 5 undefined on input line 407.
 
 
-Underfull \hbox (badness 4205) in paragraph at lines 16--21
-\T1/cmr/m/n/10.95 Neigh-borhood, con-cep-tual.  \T1/cmr/m/it/10.95 In-ter-na-ti-o-nal
- []
+LaTeX Warning: Reference `table:GT_DL_Errors' on page 5 undefined on input line 419.
 
 
-Underfull \hbox (badness 1776) in paragraph at lines 16--21
-\T1/cmr/m/it/10.95 En-vi-ron-ment and Te-ch-no-logy: Pe-o-ple, the
- []
 
-)
 
-Package natbib Warning: There were undefined citations.
+LaTeX Warning: Reference `table:GT_DL_Errors' on page 5 undefined on input line 437.
+
+
+Package natbib Warning: Citation `talmy1985lexicalization' on page 5 undefined on input line 443.
+
+
+Package natbib Warning: Citation `talmy2000toward' on page 5 undefined on input line 443.
 
 
 
@@ -1108,13 +1138,23 @@ Package natbib Warning: There were undefined citations.
 pdfTeX warning (ext4): destination with the same identifier (name{table.4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.407 \end{document}
-                    ] (sample.aux
+l.461 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{table.5}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.461 
+      ] (sample.bbl)
 
-Package natbib Warning: Citation(s) may have changed.
-(natbib)                Rerun to get citations correct.
+Package natbib Warning: There were undefined citations.
 
-)
+
+
+
+
+[6
+
+] (sample.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-08-30>
@@ -1136,17 +1176,17 @@ Package rerunfilecheck Info: Checksums for `sample.out':
 (rerunfilecheck)             After:  015EA1E29DF15C38790465FB96D11847;1769.
  ) 
 Here is how much of TeX's memory you used:
- 14647 strings out of 473898
- 232713 string characters out of 5725535
- 679561 words of memory out of 5000000
- 37227 multiletter control sequences out of 15000+600000
+ 14633 strings out of 473898
+ 232334 string characters out of 5725535
+ 679552 words of memory out of 5000000
+ 37213 multiletter control sequences out of 15000+600000
  578291 words of font info for 90 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  90i,18n,93p,1075b,554s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\CLIENTE\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx0900.pk> <C:\Users\CLIENTE\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt0900.pk> <C:\Users\CLIENTE\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0600.pk> <C:\Users\CLIENTE\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1095.pk> <C:\Users\CLIENTE\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0800.pk> <C:\Users\CLIENTE\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1095.pk> <C:\Users\CLIENTE\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti0900.pk> <C:\Users\CLIENTE\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0900.pk> <C:\Users\CLIENTE\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1095.pk> <C:\Users\CLIENTE\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1095.pk> <C:\Users\CLIENTE\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\CLIENTE\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1000.pk> <C:\Users\CLIENTE\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\CLIENTE\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\CLIENTE\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\CLIENTE\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1728.pk><C:/Users/CLIENTE/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/CLIENTE/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/CLIENTE/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Users/CLIENTE/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/CLIENTE/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/CLIENTE/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/CLIENTE/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/CLIENTE/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on sample.pdf (5 pages, 334073 bytes).
+Output written on sample.pdf (6 pages, 326334 bytes).
 PDF statistics:
- 688 PDF objects out of 1000 (max. 8388607)
- 38 named destinations out of 1000 (max. 500000)
+ 659 PDF objects out of 1000 (max. 8388607)
+ 36 named destinations out of 1000 (max. 500000)
  16 words of extra memory for PDF output out of 10000 (max. 10000000)
 

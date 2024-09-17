@@ -174,7 +174,7 @@ como mostra a Tabela~\ref{table:prep-categorizations}.
   \\\hline\hline
   Across  & \begin{tabular}[c]{@{}l@{}}(1) posição perpendicular \\ (2) movimento de atravessar\\ (3) localização oposta \\ (4) em todas as partes de\end{tabular}\\\hline
   
-  Into & \begin{tabular}[c]{@{}l@{}}(1) movimento para um \\ ponto não especificado de \\ uma área ou contêiner \\ (2) movimento até um ponto \\ de contato com um obstáculo\end{tabular}\\\hline
+  Into & \begin{tabular}[c]{@{}l@{}}(1) movimento para um \\ ponto não especificado de \\ uma área ou contêiner \\ (2) movimento em direção a uma \\ barreira ou obstáculo\end{tabular}\\\hline
   
   Onto & \begin{tabular}[c]{@{}l@{}}(1) movimento sobre uma \\superfície \\  sair de uma área \\ delimitada\end{tabular} \\\hline
   
@@ -296,7 +296,7 @@ Entretanto, a tradução da GT opta pelo sentido~(3). A expressão ``do outro la
 que a ação executada pelo indivíduo, \textit{ele}, ocorreu em uma porção do \textit{rio} que é separada da \textit{RR}, 
 diferindo da região onde a ação ocorreu na sentença original, e alinhando-se com a tradução da DL.
 
-Na formalização das sentenças do Exemplo~\ref{example:through1}, apresentada na TabelaTable~\ref{table:FormThrough},
+Na formalização das sentenças do Exemplo~\ref{example:through1}, apresentada na Tabela~\ref{table:FormThrough},
 também é possível perceber diferenças qualitativas relacionadas a informação espacial. No exemplo, \textit{through} é empregado no sentido~(1) (da Tabela~\ref{table:prep-categorizations}).
 
 % Through
@@ -352,10 +352,71 @@ enquanto a dificuldade da ação é transmitida por ``com dificuldade''.
 
 Para representar essa distinção nas formalizações, introduzimos um predicado de segunda ordem (\textit{arduously}). 
 Na Tabela~\ref{table:FormThrough}, o esforço envolvido na execução da ação vinculada ao verbo \textit{lutar} é expresso pelo predicado \textit{arduously}. 
-Em contraste, as expressões ``lutou no meio de'' e ``se debateu entre'' denotam eventos individualizados.
+Em contraste, as expressões ``lutou no meio de'' e ``se debateu entre'' denotam eventos individualizados. As informações na tabela sumarizam os desafios que o GT e o DL enfrentaram ao traduzir as informações sobre a maneira dos eventos, 
+resultando em erros de tradução. 
 
-Por fim, as formalizações na Tabela~\ref{table:FormThrough} apresentam os desafios que o GT e o DL enfrentaram ao traduzir as informações sobre a maneira dos eventos, 
-resultando em erros de tradução. A Tabela~\ref{table:GT_DL_Errors} resume a avaliação de cada categoria encontrada em nossa análise: 
+A formalização das sentenças do Exemplo, em que ``into'' está presente no texto original, também possibilitou explicitar 
+diferenças qualitativas não captadas nas traduções automáticas. Na Tabela~\ref{table:FormInto}, apresentamos a forma lógica de cada 
+sentença.
+
+% Into
+\begin{table}[!htb]
+  \centering
+  \scalebox{0.7}{
+  \begin{tabular}{| l |p{.3\textwidth}|}%{|l|l|}
+  \hline
+  \textbf{Original text:} He just about stops himself from flying\\ \underline{into} the wall. 
+  \\\hline\hline
+  \begin{tabular}[c]{@{}l@{}}  
+  $\forall t$ $ \in \{t_1, t_2, t_3\}, t_1 < t_2 < t_3$\\ 
+  $occurs\_in(moves\_into(he, wall), t)$ $\leftlsquigarrow$\\
+  $before(he, wall, t_1)$ $\wedge$\\ 
+  $meets(he, wall, t_2)$ $\wedge$\\ 
+  $after(he, wall, t_3)$ 
+  \\ 
+  \end{tabular}\\\hline\hline
+  \textbf{GT:}  Ele quase se impede de voar \underline{para} a parede e\\ amamenta o carro de volta aos boxes.
+  \\\hline\hline
+  \begin{tabular}[c]{@{}l@{}}  
+  
+  $\forall t$ $\in \{t_1, t_2\}, t_1 < t_2$\\
+  $occurs\_in(moves\_to(he, wall), t)$ $\leftlsquigarrow$\\ %Aqui, para mim, fez mais sentido colocar movest_to
+  $before(he, wall, t_1)$ $\wedge$\\ 
+  $meets(he, wall, t_2)$ 
+  
+  \end{tabular}\\\hline\hline
+  
+  \textbf{DL:} Por pouco ele não voa \underline{contra} o muro e leva o carro\\ de volta para os boxes.
+  \\\hline\hline
+  \begin{tabular}[c]{@{}l@{}} 
+  $\forall t$ $\in \{t_1\}$\\
+  $occurs\_in(moves\_to(he, wall), t)$ $\leftlsquigarrow$\\ %Aqui, para mim, fez mais sentido colocar movest_to
+  $before(he, wall, t_1)$ $\wedge$\\ 
+  $meets(he, wall, t_2)$ $\wedge$\\ 
+  $after(he, wall, t_3)$ 
+  % $continuous(t_1, t_2, t_3)$\\
+  \end{tabular}\\\hline
+  
+  \end{tabular}}
+  
+  \caption{Formalizações para as sentenças do Exemplo.}
+  \label{table:FormInto}
+  \end{table}
+
+As formalizações na Tabela~\ref{table:FormInto} mostram, assim como as dos exemplos anteriores, as dificuldades dos tradutores 
+automáticos em traduzir informações espaciais. Na sentença orignal, ``Into'' tem a segunda acepção da Tabela~\ref{table:prep-categorizations}, isto é, 
+``movimento em direção a uma barreira ou obstáculo''. Considerando a cena evocada pela sentença, a ideia transmitida é a de que 
+esse movimento culminaria em um choque violento. Essa ideia não é captada pela tradução do GT, por exemplo. Nela, a 
+preposição ``para'' recupera a informação de que a figura, ``ele'', se movimentou em direção ao fundo, ``a parede''. Porém, essa preposição não indica, necessariamente, um movimento 
+em direção a uma barreira. Além disso, a tradução do GT, além de soar estranha, transmite a ideia de que a figura quase evitou uma colisão, mas não conseguiu.
+Na tradução do DL, por sua vez, a preposição ``contra'' recupera a informação de que a figura foi de encontro a 
+um obstáculo para se chocar contra ele. Porém, em sua totalidade, a tradução soa estranha por evocar uma ideia de sequência entre se chocar contra o muro e, então, levar o carro de volta para os boxes. 
+Uma tradução mais apropriada para a sentença original, em nossa avaliação, seria ``Ele conseguiu evitar por muito pouco que o carro se arrebentasse contra o muro, conduzindo-o em seguida com cuidado para os boxes.''. Essa tradução capta a 
+informação de que a figura, ``ele'', evitou, por pouco, um choque violento e que conseguiu conduzir o carro de volta aos boxes.
+
+
+As formalizações apresentadas resumem as principais dificuldades dos tradutores automáticos em capturar aspectos qualitativos da espacialidade.
+A Tabela~\ref{table:GT_DL_Errors}, por sua vez, resume a avaliação de cada categoria encontrada em nossa análise: 
 tradução (C)orreta, tradução equivocada de (S)ignificado e erro de (P)rojeção na tradução.
 
 \begin{table}[ht]
